@@ -241,7 +241,7 @@ const Index = () => {
               <CardContent className="space-y-4">
                 <Textarea value={prompt} onChange={e => setPrompt(e.target.value)} placeholder="Paste YouTube link or describe the local file and desired edits, languages, schedule…" />
                 <div className="flex flex-wrap gap-3">
-                  <Button variant="hero" onClick={() => handleRun(false)} disabled={isRunning} className="font-bold text-slate-50 bg-gray-950 hover:bg-gray-800">
+                  <Button variant="hero" onClick={() => handleRun(false)} disabled={isRunning} className="font-bold text-slate-50 bg-teal-950 hover:bg-teal-800">
                     <Rocket className="mr-2" size={16} /> Run
                   </Button>
                   <Button variant="secondary" onClick={() => handleRun(true)} disabled={isRunning}>
