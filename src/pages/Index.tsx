@@ -1,4 +1,6 @@
+
 import { useEffect, useMemo, useRef, useState } from "react";
+import { supabase } from "@/lib/supabase";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Textarea } from "@/components/ui/textarea";
@@ -94,6 +96,24 @@ const Index = () => {
   const [selectedJobId, setSelectedJobId] = useState<string | null>(null);
   const [settingsState, setSettingsState] = useState(storage.getSettings());
   const heroRef = useRef<HTMLDivElement>(null);
+  
+  // 🔹 Test connexion Supabase
+  useEffect(() => {
+    async function testSupabase() {
+      console.log("🔄 Test connexion Supabase...");
+      const { data, error } = await supabase
+        .from("jobs") // Remplace par une table qui existe chez toi
+        .select("*")
+        .limit(1);
+      if (error) {
+        console.error("❌ Erreur Supabase:", error.message);
+      } else {
+        console.log("✅ Connexion Supabase OK — Données:", data);
+      }
+    }
+    testSupabase();
+  }, []);
+  
   useEffect(() => {
     storage.setJobs(jobs);
   }, [jobs]);
