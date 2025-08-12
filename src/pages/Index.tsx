@@ -90,7 +90,7 @@ const storage = {
   }
 };
 const Index = () => {
-  console.log("🚀 Composant Index monté !");
+  console.log("🚀 Composant Index monté yes yes yes !");
   console.log("URL Supabase :", import.meta.env.VITE_SUPABASE_URL);
   console.log("Anon key :", import.meta.env.VITE_SUPABASE_ANON_KEY);
   const [prompt, setPrompt] = useState("");
